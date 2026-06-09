@@ -60,23 +60,19 @@ Open [index.html](./index.html).
 
 Reference illustrations in this style (not the only valid subjects):
 
-<p align="center">
-  <iframe src="examples/overview-datacenter.html" width="640" height="200" style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;" title="spatial-isometric-scene" scrolling="no"></iframe>
-</p>
+### Spatial isometric scene (640×200)
 
-<p align="center">
-  <a href="examples/overview-datacenter.html">overview-datacenter.html</a>
-</p>
+![Spatial isometric scene](./docs/overview-datacenter.gif)
 
-<p align="center">
-  <iframe src="examples/dedicated-server-rack.html" width="421" height="200" style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;" title="front-panel-carousel" scrolling="no"></iframe>
-</p>
+[Open interactive demo](./examples/overview-datacenter.html)
 
-<p align="center">
-  <a href="examples/dedicated-server-rack.html">dedicated-server-rack.html</a>
-</p>
+### Stacked front-panel carousel (421×200)
 
-> Iframes render in local README preview. On github.com, use `npx serve` or [index.html](./index.html).
+![Front-panel carousel](./docs/dedicated-server-rack.gif)
+
+[Open interactive demo](./examples/dedicated-server-rack.html)
+
+> For live interaction, run `npx serve .` and open [index.html](./index.html).
 
 ## License
 
