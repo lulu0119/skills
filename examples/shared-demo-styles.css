@@ -1,0 +1,171 @@
+/* Demo viewport + animation — dimensions match React WhyChoose*Demo */
+
+:root {
+  --demo-height: 200px;
+}
+
+body.demo-overview { --demo-width: 640px; }
+body.demo-rack { --demo-width: 421px; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: var(--demo-width);
+  height: var(--demo-height);
+  overflow: hidden;
+}
+
+.demo-viewport {
+  position: relative;
+  overflow: hidden;
+  width: var(--demo-width);
+  height: var(--demo-height);
+}
+.demo-viewport--overview {
+  background: linear-gradient(
+    to bottom right,
+    color-mix(in srgb, var(--color-primary) 8%, transparent),
+    var(--color-background),
+    color-mix(in srgb, var(--color-muted) 50%, transparent)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-viewport--rack {
+  background: linear-gradient(
+    to top left,
+    color-mix(in srgb, var(--color-primary) 2.8%, transparent),
+    color-mix(in srgb, var(--color-muted) 24%, transparent)
+  );
+}
+.demo-viewport--overview .iso-scene,
+.demo-viewport--rack .iso-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .iso-led-pulse { animation: iso-led-pulse 2.4s ease-in-out infinite; }
+  .iso-fan-spin {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: iso-fan-spin 3.6s linear infinite;
+  }
+  .iso-cable-flow {
+    stroke-dasharray: 3 64;
+    animation: iso-cable-flow 3.4s linear infinite;
+  }
+}
+.iso-scene :is(path, line, rect, ellipse, circle) { vector-effect: non-scaling-stroke; }
+.iso-cable {
+  fill: none;
+  stroke: color-mix(in oklch, var(--color-foreground) 22%, transparent);
+  stroke-width: 0.45;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.iso-cable-flow {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 1;
+  stroke-linecap: round;
+  opacity: 0.5;
+}
+@keyframes iso-fan-spin { to { transform: rotate(360deg); } }
+@keyframes iso-led-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+@keyframes iso-cable-flow { to { stroke-dashoffset: -67; } }
+@media (prefers-reduced-motion: reduce) {
+  .iso-led-pulse, .iso-fan-spin, .iso-cable-flow { animation: none; }
+  .iso-cable-flow { opacity: 0; }
+}
+
+/* Rack carousel — WhyChooseDedicatedDemo layout */
+.rack-stage {
+  position: relative;
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.rack-grid {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--color-primary) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--color-primary) 6%, transparent) 1px, transparent 1px);
+  background-size: 12px 12px;
+  background-position: -1px calc(50% - 78px);
+}
+.rack-tick {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 1px;
+  background: color-mix(in oklch, var(--color-foreground) 12%, transparent);
+}
+.rack-stack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 168px;
+  flex-shrink: 0;
+}
+.rack-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 0;
+  transition: background 0.15s;
+}
+.rack-row.is-selected { background: color-mix(in srgb, var(--color-primary) 5%, transparent); }
+.rack-row:not(.is-selected):hover { background: color-mix(in srgb, var(--color-muted) 25%, transparent); }
+.rack-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  padding-right: 2px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+.rack-label.is-selected { color: var(--color-primary); }
+.rack-label:not(.is-selected) { color: color-mix(in oklch, var(--color-foreground) 50%, transparent); }
+.rack-svg-wrap {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-right: 2px;
+}
+.rack-svg-aspect {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+.rack-svg-aspect svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.iso-fade-in { animation: iso-fade-in 0.18s ease-out; }
+@keyframes iso-fade-in { from { opacity: 0; } to { opacity: 1; } }
