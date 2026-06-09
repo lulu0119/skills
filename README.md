@@ -2,8 +2,6 @@
 
 Agent skill for the **light-line isometric SVG illustration style** — thin token-based strokes, 2.5D projection, modular primitives, depth-sorted vector scenes.
 
-> Rename this GitHub repo to **`skill-svg-light-line-illustration`**.
-
 ## How it works
 
 This skill does not jump straight to code. The intended workflow is **requirement alignment with the agent** — iterate in the browser until you approve a mockup, then implement modular SVG parts in the host app.
