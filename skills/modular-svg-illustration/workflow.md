@@ -1,14 +1,12 @@
 # Workflow — align requirements before drawing
 
-This skill teaches **how the illustration should look**. The **process** for getting there is requirement alignment with the agent — iterate in the browser until you and the agent share the same picture, then implement.
-
-Requires [Superpowers](https://github.com/obra/superpowers) (`brainstorming` skill + visual companion).
+This skill teaches **how the illustration should look**. Get aligned in the browser first, then implement.
 
 ## The loop
 
 ```
-Explore host project → /brainstorming → visual companion mockups → user approves
-    → read user-edited mockup if any → modular implementation → screenshot verify → deslop
+Explore host → clarify intent (2–3 options) → HTML mockups → user approves
+  → read user-edited mockup if any → modular implementation → screenshot verify → deslop
 ```
 
 **Do not implement until the mockup is approved.** The mockup is the contract.
@@ -21,20 +19,17 @@ Before any mockup:
 2. Read the **host viewport** from the real component (card width × 200px demo area), not a guessed size.
 3. Note existing CSS keyframes and `prefers-reduced-motion` / `useReducedMotion` patterns — reuse names where possible.
 
-## Step 1 — Brainstorming (Superpowers)
+## Step 1 — Clarify direction
 
-Invoke Superpowers **`brainstorming`** before creative work. It enforces:
+Before drawing:
 
-- One clarifying question at a time
-- 2–3 approaches with trade-offs (e.g. isometric vs perspective vs scatter)
-- Design approval before code
-- Optional transition to `writing-plans` for multi-file work
+- Ask clarifying questions (one batch at a time when possible)
+- Offer 2–3 approaches with trade-offs (e.g. isometric vs perspective vs scatter)
+- Get design approval before writing production code
 
-For visual illustration tasks, accept the **visual companion** offer when brainstorming proposes it.
+## Step 2 — Mockup iteration
 
-## Step 2 — Visual companion iteration
-
-Mockups live under `.superpowers/brainstorm/` in the host project (add `.superpowers/` to `.gitignore`).
+Put versioned mockups in the host project under a scratch path the user can ignore (e.g. `.scratch/illustration-mockups/` — add that folder to `.gitignore` if needed). Single-file HTML is fine.
 
 | Practice | Rule |
 |----------|------|
@@ -43,9 +38,8 @@ Mockups live under `.superpowers/brainstorm/` in the host project (add `.superpo
 | Comparisons | Show 2–3 options side by side for early decisions (projection, building style) |
 | Self-verify | Screenshot the mockup **before** showing the user; fix obvious issues first |
 | User edits | If the user tweaks positions/lines in the mockup, **read their version** before implementing |
-| Server | Restart the companion server if the port dies; confirm it is listening |
 
-Each iteration should address **one batch of feedback** (spacing, cable routing, 1U anatomy, etc.). Do not skip ahead to the full scene until primitives and assemblies are readable.
+Each iteration should address **one batch of feedback**. Do not skip ahead to the full scene until primitives and assemblies are readable.
 
 ## Step 3 — Approval gate
 

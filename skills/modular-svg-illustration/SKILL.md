@@ -1,24 +1,16 @@
 ---
-name: svg-light-line-illustration
+name: modular-svg-illustration
 description: >-
-  Teaches a light-line isometric SVG illustration style —
-  thin theme-token strokes, 2.5D projection, modular primitives, depth-sorted scenes,
-  optional soft motion. Use when drawing card art, product diagrams, spatial layouts,
-  or UI demos in this sketch-like vector illustration look. Requires Superpowers
-  brainstorming + visual companion for the requirement-alignment workflow.
+  Modular SVG illustration: assemble primitives into assemblies into depth-sorted
+  scenes (light-line isometric look). Use for card art, product diagrams, spatial
+  layouts, or UI demos in this sketch-like vector style.
 ---
 
-# Light-Line Isometric SVG Illustration Style
+# Modular SVG illustration
 
-A reusable **SVG illustration style**, not a single subject or scene type.
+Reusable style — pale fills, hairline strokes, isometric 2.5D, **modular parts assembled into scenes**. Not tied to one subject.
 
-Pale fills, hairline strokes, 2.5D isometric projection, built from small approved modules. Bundled excerpts show the style on a spatial scene (640×200) and a framed front face (421×200); any topic can use the same language.
-
-## Prerequisite
-
-Install [Superpowers](https://github.com/obra/superpowers). This skill covers **what to draw**; Superpowers **`brainstorming`** + **visual companion** cover **how to align requirements with the user** before implementation.
-
-Full process: [workflow.md](workflow.md)
+Style details below. Alignment loop (mockup → approve → implement): [workflow.md](workflow.md). Composition + code excerpts: [reference.md](reference.md).
 
 ## Style definition
 
@@ -46,12 +38,12 @@ Code excerpts + composition rules: [reference.md](reference.md)
 
 ## Workflow: align first, draw last
 
-**Do not implement until the user approves a visual companion mockup.**
+**Do not implement until the user approves a mockup.**
 
 ```
 0. Explore host   → sibling illustration, real viewport, existing CSS/motion hooks
-1. Brainstorming  → Superpowers; 2–3 options; visual companion for layout/style
-2. Mockup loop    → versioned HTML in .superpowers/brainstorm/; screenshot self-verify
+1. Clarify        → 2–3 options with trade-offs; get direction approval
+2. Mockup loop    → versioned HTML; screenshot self-verify before showing
 3. User approves  → or user edits mockup; read their version before coding
 4. Modules        → primitives → assemblies → scene (see phases below)
 5. Integrate      → *-parts + demo component + CSS; dev-server screenshot vs mockup
@@ -61,7 +53,7 @@ Detail: [workflow.md](workflow.md)
 
 ### Phase A — Primitives
 
-One concern per companion file (`module-vent-v1.html`, `module-indicator-v1.html`, …):
+One concern per mockup file (`module-vent-v1.html`, `module-indicator-v1.html`, …):
 
 - Stroke weight and corner radius
 - Token fills vs strokes

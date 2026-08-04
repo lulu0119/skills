@@ -1,79 +1,73 @@
-# skill-svg-light-line-illustration
+# Agent Skills
 
-Agent skill for the **light-line isometric SVG illustration style** — thin token-based strokes, 2.5D projection, modular primitives, depth-sorted vector scenes.
+Reusable [Agent Skills](https://agentskills.io) for Cursor, Claude Code, Codex, and other agents that load `SKILL.md`.
 
-## How it works
+Each skill is a folder under `skills/` with a portable `SKILL.md` contract. Install selectively via [skills.sh](https://skills.sh) / the `skills` CLI.
 
-This skill does not jump straight to code. The intended workflow is **requirement alignment with the agent** — iterate in the browser until you approve a mockup, then implement modular SVG parts in the host app.
+## Skills
 
-That alignment loop depends on [Superpowers](https://github.com/obra/superpowers) (`brainstorming` skill + visual companion). Install Superpowers first, then this skill.
 
-| Step | What happens |
-|------|----------------|
-| 1 | Superpowers `brainstorming` explores intent; visual companion shows mockups at the real card size |
-| 2 | You critique; agent revises (`v1` → `v2` → …) until the layout reads right |
-| 3 | You approve (or tweak the mockup yourself); agent implements `*-parts` + demo component |
-| 4 | Screenshot on dev server confirms it matches what you signed off |
+| Skill                                                                  | Description                                                                                                                |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `[poster-image-to-html](./skills/poster-image-to-html/)`               | Faithful HTML recreation of poster/banner reference images with Playwright PNG compare loop                                |
+| `[modular-svg-illustration](./skills/modular-svg-illustration/)`       | Modular SVG illustration — assemble primitives into depth-sorted scenes ([demos](./skills/modular-svg-illustration/README.md#preview)) |
 
-Detail: [`svg-light-line-illustration/workflow.md`](./svg-light-line-illustration/workflow.md)
 
-## Prerequisites
 
-**[Superpowers](https://github.com/obra/superpowers)** — agentic skills framework with brainstorming and visual companion.
 
-Cursor:
+## Layout
 
-```
-/add-plugin superpowers
-```
-
-Other clients: see [Superpowers installation](https://github.com/obra/superpowers#installation).
-
-## Install this skill
-
-Copy `svg-light-line-illustration/` into your agent skills path. The skill is **self-contained** — `reference.md` embeds code excerpts so the agent does not need this repo's `examples/` folder.
-
-| Client | Path |
-|--------|------|
-| Cursor | `.cursor/skills/svg-light-line-illustration/` or `.agents/skills/svg-light-line-illustration/` |
-| Codex | `.codex/skills/svg-light-line-illustration/` |
-| Claude Code | `.claude/skills/svg-light-line-illustration/` |
-
-Invoke in Cursor: `/svg-light-line-illustration`
-
-```
-svg-light-line-illustration/
-├── SKILL.md        # style rules + workflow summary
-├── workflow.md     # requirement-alignment loop (Superpowers)
-└── reference.md    # composition rules + code excerpts
+```text
+skills/
+  <skill-name>/
+    SKILL.md          # required — frontmatter + instructions
+    scripts/          # optional
+    references/       # optional
+    assets/           # optional
+    examples/         # optional demos for that skill
 ```
 
-## Preview
+
+
+## Install
+
+List skills in this repo:
 
 ```bash
-npx --yes serve .
+npx skills add lulu0119/skills --list
 ```
 
-Open [index.html](./index.html).
+Install one skill:
 
-## Examples
+```bash
+npx skills add lulu0119/skills --skill poster-image-to-html
+npx skills add lulu0119/skills --skill modular-svg-illustration
+```
 
-Reference illustrations in this style (not the only valid subjects):
+Install everything:
 
-### Spatial isometric scene (640×200)
+```bash
+npx skills add lulu0119/skills --skill '*' -y
+```
 
-![Spatial isometric scene](./docs/overview-datacenter.gif)
+From a local clone:
 
-[Open interactive demo](./examples/overview-datacenter.html)
+```bash
+npx skills add . --list
+npx skills add . --skill poster-image-to-html
+```
 
-### Stacked front-panel carousel (421×200)
 
-![Front-panel carousel](./docs/dedicated-server-rack.gif)
 
-[Open interactive demo](./examples/dedicated-server-rack.html)
+## Add a skill
 
-> For live interaction, run `npx serve .` and open [index.html](./index.html).
+1. Create `skills/<skill-name>/SKILL.md` with YAML frontmatter (`name`, `description`). `name` must match the folder name (kebab-case).
+2. Keep `SKILL.md` focused; put long reference material in sibling files (`reference.md`, `references/`, `scripts/`).
+3. List the skill in the table above.
+4. Optional: add demos under that skill’s `examples/`.
+
+
 
 ## License
 
-MIT
+MIT — see [LICENSE](./LICENSE).

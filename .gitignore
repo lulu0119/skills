@@ -1,2 +1,9 @@
 .DS_Store
 Thumbs.db
+node_modules/
+.skills/
+skills-lock.json
+*.log
+.record-tmp/
+package.json
+package-lock.json

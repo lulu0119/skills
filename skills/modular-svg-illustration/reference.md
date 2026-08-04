@@ -1,6 +1,6 @@
-# Technical reference — light-line isometric SVG illustration style
+# Technical reference — modular SVG illustration
 
-Self-contained excerpts for the **light-line isometric SVG illustration style**. Datacenter/rack filenames in the bundled repo demos are examples only — the same language applies to any subject.
+Self-contained excerpts for assembling **modular SVG illustrations** (light-line isometric look). Datacenter/rack filenames in the bundled repo demos are examples only — the same language applies to any subject.
 
 ## Reference viewports
 
