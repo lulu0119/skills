@@ -1,12 +1,14 @@
 ---
 name: alint-until-clean
 description: >-
-  Drive alint until clean. Use when the user wants an alint fix loop, alint
-  diagnostics cleared by editing code, or to run alint → fix → re-run until
-  the output is clean.
+  Drive moeru-ai/alint until clean. Use when the user wants an alint fix loop,
+  alint diagnostics cleared by editing code, or to run alint → fix → re-run
+  until the output is clean.
 ---
 
 # Alint until clean
+
+[moeru-ai/alint](https://github.com/moeru-ai/alint) only.
 
 Run alint → read diagnostics → edit → re-run until **clean**.
 
