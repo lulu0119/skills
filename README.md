@@ -9,6 +9,7 @@ Each skill is a folder under `skills/` with a portable `SKILL.md` contract. Inst
 
 | Skill                                                                  | Description                                                                                                                |
 | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `[alint-until-clean](./skills/alint-until-clean/)`                     | Drive alint → fix → re-run until clean (scoped to a locked path set)                                                       |
 | `[poster-image-to-html](./skills/poster-image-to-html/)`               | Faithful HTML recreation of poster/banner reference images with Playwright PNG compare loop                                |
 | `[modular-svg-illustration](./skills/modular-svg-illustration/)`       | Modular SVG illustration — assemble primitives into depth-sorted scenes ([demos](./skills/modular-svg-illustration/README.md#preview)) |
 
@@ -40,6 +41,7 @@ npx skills add lulu0119/skills --list
 Install one skill:
 
 ```bash
+npx skills add lulu0119/skills --skill alint-until-clean
 npx skills add lulu0119/skills --skill poster-image-to-html
 npx skills add lulu0119/skills --skill modular-svg-illustration
 ```
