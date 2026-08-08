@@ -12,6 +12,7 @@ Each skill is a folder under `skills/` with a portable `SKILL.md` contract. Inst
 | `[alint-until-clean](./skills/alint-until-clean/)`                     | Drive [moeru-ai/alint](https://github.com/moeru-ai/alint) until clean                                                       |
 | `[poster-image-to-html](./skills/poster-image-to-html/)`               | Faithful HTML recreation of poster/banner reference images with Playwright PNG compare loop                                |
 | `[modular-svg-illustration](./skills/modular-svg-illustration/)`       | Modular SVG illustration — assemble primitives into depth-sorted scenes ([demos](./skills/modular-svg-illustration/README.md#preview)) |
+| `[pr-review-slides](./skills/pr-review-slides/)`                       | Slidev decks that review a GitHub PR by diff and explain why each change was written that way                             |
 
 
 
