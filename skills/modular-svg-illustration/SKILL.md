@@ -38,15 +38,16 @@ Code excerpts + composition rules: [reference.md](reference.md)
 
 ## Workflow: align first, draw last
 
-**Do not implement until the user approves a mockup.**
+**Do not implement until the user approves a visual reference and mockup.**
 
 ```
 0. Explore host   → sibling illustration, real viewport, existing CSS/motion hooks
 1. Clarify        → 2–3 options with trade-offs; get direction approval
-2. Mockup loop    → versioned HTML; screenshot self-verify before showing
-3. User approves  → or user edits mockup; read their version before coding
-4. Modules        → primitives → assemblies → scene (see phases below)
-5. Integrate      → *-parts + demo component + CSS; dev-server screenshot vs mockup
+2. Reference      → use the built-in image generation to create a visual reference; show it to the user
+3. Mockup loop    → versioned HTML; screenshot self-verify before showing
+4. User approves  → or user edits the reference/mockup; read their version before coding
+5. Modules        → primitives → assemblies → scene (see phases below)
+6. Integrate      → *-parts + demo component + CSS; dev-server screenshot vs mockup
 ```
 
 Detail: [workflow.md](workflow.md)
@@ -74,7 +75,7 @@ Placements, ground connectors, pads/carpets, depth sort, bake viewBox fit. Follo
 
 ### Phase D — Integration
 
-Port `*-parts` (geometry) + scene wrapper into the target app; register CSS; gate motion; run **deslop** before done.
+Port `*-parts` (geometry) + scene wrapper into the target app; register CSS; gate motion; then verify the integrated result against the approved reference and mockup.
 
 ## Verification
 
